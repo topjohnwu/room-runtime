@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def vRoom = "2.1.0-rc01"
+    api "androidx.room:room-common:${vRoom}"
+
+    def vSql = "2.0.1"
+    api "androidx.sqlite:sqlite-framework:${vSql}"
+    api "androidx.sqlite:sqlite:${vSql}"
+
+    implementation 'androidx.arch.core:core-runtime:2.0.1'
+    implementation 'androidx.core:core:1.0.2'
+
+    compileOnly 'androidx.lifecycle:lifecycle-livedata-core:2.0.0'
+    compileOnly 'androidx.paging:paging-common:2.1.0'
+}

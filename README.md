@@ -1,10 +1,11 @@
 # Room-Runtime
+[![](https://jitpack.io/v/topjohnwu/room-runtime.svg)](https://jitpack.io/#topjohnwu/room-runtime)
 
-This is a modified version of the AndroidX Room Persistent library, specifically the [room-runtime](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-room-release) component.
+This is a modified version of the AndroidX Room Persistent library, specifically the [room-runtime](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-room-release/room/runtime/) component.
 
 ## Why
 
-The goal is to allow full Proguard/R8 class obfuscation. In official room runtime, this proguard rule `-keep class * extends androidx.room.RoomDatabase` prevents any possible obfuscation for `RoomDatabase` classes. The reason why they this rule is needed is because the generated `RoomDatabase` implementation will be found and created via classname reflection at runtime.
+The goal is to allow full Proguard/R8 class obfuscation. In official room runtime, this proguard rule `-keep class * extends androidx.room.RoomDatabase` prevents any possible obfuscation for `RoomDatabase` classes. The reason why this rule is needed is because the generated `RoomDatabase` implementation will be found and created via classname reflection at runtime.
 
 ## Download
 

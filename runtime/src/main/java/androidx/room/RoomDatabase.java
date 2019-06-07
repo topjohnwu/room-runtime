@@ -848,9 +848,13 @@ public abstract class RoomDatabase {
                             mRequireMigration,
                             mAllowDestructiveMigrationOnDowngrade,
                             mMigrationsNotRequiredFrom);
-            T db = Room.getGeneratedImplementation(mDatabaseClass, DB_IMPL_SUFFIX);
+            // T db = Room.getGeneratedImplementation(mDatabaseClass, DB_IMPL_SUFFIX);
+            RoomDatabase db = Room.databaseFactory.create(mDatabaseClass);
+            if (!mDatabaseClass.isInstance(db))
+                throw new RuntimeException("Cannot find implementation for "
+                        + mDatabaseClass.getCanonicalName());
             db.init(configuration);
-            return db;
+            return (T) db;
         }
     }
 
@@ -979,5 +983,10 @@ public abstract class RoomDatabase {
          */
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
         }
+    }
+
+    public interface Factory {
+        @Nullable
+        RoomDatabase create(@NonNull Class<? extends RoomDatabase> clazz);
     }
 }

@@ -106,4 +106,10 @@ public class Room {
     @SuppressWarnings("PrivateConstructorForUtilityClass")
     public Room() {
     }
+
+    static RoomDatabase.Factory databaseFactory = clazz -> null;
+
+    public static void setFactory(@NonNull RoomDatabase.Factory factory) {
+        databaseFactory = factory;
+    }
 }

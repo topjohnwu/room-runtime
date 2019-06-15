@@ -21,7 +21,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def vRoom = "2.1.0-rc01"
+    def vRoom = "2.1.0"
     api "androidx.room:room-common:${vRoom}"
 
     def vSql = "2.0.1"

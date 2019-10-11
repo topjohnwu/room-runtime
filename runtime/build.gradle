@@ -3,11 +3,11 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.0"
+    buildToolsVersion "29.0.2"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         consumerProguardFiles 'proguard-rules.pro'
     }
 
@@ -21,7 +21,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def vRoom = "2.1.0"
+    def vRoom = "2.2.0"
     api "androidx.room:room-common:${vRoom}"
 
     def vSql = "2.0.1"
@@ -29,10 +29,9 @@ dependencies {
     api "androidx.sqlite:sqlite:${vSql}"
 
     implementation 'androidx.arch.core:core-runtime:2.0.1'
-    implementation 'androidx.core:core:1.0.2'
 
     compileOnly 'androidx.lifecycle:lifecycle-livedata-core:2.0.0'
-    compileOnly 'androidx.paging:paging-common:2.1.0'
+    compileOnly 'androidx.paging:paging-common:2.0.0'
 }
 
 task sourcesJar(type: Jar) {

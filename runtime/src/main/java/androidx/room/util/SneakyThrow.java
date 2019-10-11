@@ -13,16 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.room.util;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
+
 /**
  * Java 8 Sneaky Throw technique.
  *
  * @hide
  */
-@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public class SneakyThrow {
+
     /**
      * Re-throws a checked exception as if it was a runtime exception without wrapping it.
      *
@@ -31,10 +35,13 @@ public class SneakyThrow {
     public static void reThrow(@NonNull Exception e) {
         sneakyThrow(e);
     }
+
     @SuppressWarnings("unchecked")
     private static <E extends Throwable> void sneakyThrow(@NonNull Throwable e) throws E {
         throw (E) e;
     }
+
     private SneakyThrow() {
+
     }
 }
